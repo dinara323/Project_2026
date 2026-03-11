@@ -102,29 +102,54 @@ window.onload = function() {
         outputElement.innerHTML = a;
     };
 
-    // ========== КОД ДЛЯ МОДАЛЬНОГО ОКНА "ОБ АВТОРЕ" ==========
+    // ========== КОД ДЛЯ КНОПКИ ПЕРЕКЛЮЧЕНИЯ ТЕМЫ ==========
     
-    // Получаем ссылки на элементы модального окна
-    const modal = document.getElementById('author-modal');      // Само модальное окно
-    const authorLink = document.getElementById('author-link');  // Ссылка "Об авторе"
-    const closeBtn = document.querySelector('.close-btn');      // Кнопка закрытия (крестик)
-
-    // Открываем модальное окно при клике на ссылку "Об авторе"
-    authorLink.onclick = function(event) {
-        event.preventDefault();  // Отменяем стандартное поведение ссылки (чтобы не перезагружалась страница)
-        modal.style.display = 'block';  // Показываем модальное окно
-    };
-
-    // Закрываем модальное окно при клике на крестик
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';  // Скрываем модальное окно
-    };
-
-    // Закрываем модальное окно при клике вне его области (на затемненный фон)
-    window.onclick = function(event) {
-        if (event.target == modal) {  // Если кликнули именно на затемненный фон (сам modal)
-            modal.style.display = 'none';  // Скрываем модальное окно
+    // Получаем ссылку на кнопку переключения темы
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    // Переменная для отслеживания текущей темы (true = темная, false = светлая)
+    let isDarkTheme = true;
+    
+    // Добавляем обработчик клика на кнопку
+    themeToggle.onclick = function() {
+        // Получаем ссылку на элемент body
+        const body = document.body;
+        
+        // Переключаем тему
+        if (isDarkTheme) {
+            // Если была темная тема - переключаем на светлую
+            body.classList.add('light-theme');  // Добавляем класс light-theme к body
+            themeToggle.innerHTML = '☀️';       // Меняем иконку на солнышко
+            themeToggle.style.backgroundColor = '#4a6fa5'; // Меняем цвет кнопки на синий
+            isDarkTheme = false;                 // Обновляем переменную состояния
+        } else {
+            // Если была светлая тема - переключаем обратно на темную
+            body.classList.remove('light-theme'); // Удаляем класс light-theme
+            themeToggle.innerHTML = '🌙';          // Меняем иконку обратно на луну
+            themeToggle.style.backgroundColor = '#ff9801'; // Возвращаем оранжевый цвет
+            isDarkTheme = true;                    // Обновляем переменную состояния
         }
+    };
+
+    // ========== КОД ДЛЯ ТУЛТИПА "ОБ АВТОРЕ" ==========
+    
+    // Получаем ссылки на элементы тултипа
+    const authorLink = document.getElementById('author-link');
+    const tooltip = document.querySelector('.author-tooltip');
+    
+    // Показываем тултип при наведении на ссылку
+    authorLink.onmouseenter = function() {
+        tooltip.style.display = 'block';
+    };
+    
+    // Скрываем тултип когда убираем мышь
+    authorLink.onmouseleave = function() {
+        tooltip.style.display = 'none';
+    };
+    
+    // Предотвращаем переход по ссылке
+    authorLink.onclick = function(event) {
+        event.preventDefault();
     };
 
 }; // Конец window.onload

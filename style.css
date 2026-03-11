@@ -6,6 +6,7 @@ body {
   padding: 0;
   background-color: #1a1a2e;    /* Темно-синий цвет фона */
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease; /* Плавное изменение фона */
 }
 
 /* Шапка сайта */
@@ -15,6 +16,7 @@ body {
   padding: 15px 0;
   border-bottom: 3px solid white; /* Белая полоса снизу */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Тень под шапкой */
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
 }
 
 /* Контейнер для содержимого шапки */
@@ -43,6 +45,7 @@ body {
   font-weight: bold;
   color: white;                    /* Белый цвет текста */
   letter-spacing: 2px;            /* Интервал между буквами */
+  transition: color 0.3s ease;
 }
 
 /* Навигационное меню */
@@ -63,6 +66,28 @@ body {
 
 .main-nav a:hover {
   color: #ff9801;                 /* Оранжевый цвет при наведении */
+}
+
+/* ========== СТИЛИ ДЛЯ КНОПКИ ПЕРЕКЛЮЧЕНИЯ ТЕМЫ ========== */
+
+.theme-btn {
+  width: 45px;                      /* Ширина кнопки */
+  height: 45px;                     /* Высота кнопки (равна ширине для круга) */
+  border-radius: 50%;               /* Делает кнопку идеально круглой */
+  background-color: #ff9801;        /* Оранжевый фон */
+  border: 2px solid white;          /* Белая рамка */
+  color: white;                     /* Белый цвет эмодзи */
+  font-size: 24px;                  /* Размер эмодзи */
+  cursor: pointer;                  /* Курсор-указатель */
+  display: flex;                    /* Flex для центрирования */
+  align-items: center;              /* Центрирование по вертикали */
+  justify-content: center;          /* Центрирование по горизонтали */
+  transition: all 0.3s ease;        /* Плавное изменение всех свойств */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Тень */
+}
+
+.theme-btn:active {
+  transform: scale(0.95);           /* Уменьшение при нажатии */
 }
 
 /* ========== СТИЛИ ДЛЯ ТУЛТИПА "ОБ АВТОРЕ" ========== */
@@ -94,6 +119,7 @@ body {
   
   /* Небольшая тень для объема */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Показываем тултип при наведении на пункт меню */
@@ -131,6 +157,7 @@ body {
   border: 4px solid #808080;      /* Серая прямоугольная рамка */
   border-radius: 20px;             /* Скругляем углы на 20 пикселей */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* опишем базовый стиль кнопки калькулятора */
@@ -150,6 +177,7 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Создаем большой полупрозрачный эмодзи попкорна на всю кнопку */
@@ -163,6 +191,7 @@ body {
   opacity: 0.45;
   z-index: -1;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 /* Для каждой цифровой кнопки меняем эмодзи на кинохлопушку */
@@ -185,11 +214,6 @@ body {
 #btn_op_clear::before,
 #btn_op_sign::before { 
   content: "🎫";
-}
-
-/* hover - состояние при наведении */
-.my-btn:hover {
-  background: darkgray;
 }
 
 /* active - состояние при нажатии */
@@ -221,4 +245,69 @@ body {
   border: 2px solid #808080;      /* Серая рамка для экрана */
   border-radius: 10px;             /* Немного скругляем углы экрана */
   box-sizing: border-box;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ========== СТИЛИ ДЛЯ СВЕТЛОЙ ТЕМЫ ========== */
+
+/* Класс light-theme добавляется к body при переключении */
+body.light-theme {
+  background-color: #f0f0f0;      /* Светло-серый фон страницы */
+}
+
+/* Шапка в светлой теме */
+body.light-theme .site-header {
+  background-color: #4a6fa5;       /* Синий цвет шапки */
+  border-bottom-color: #ff9801;    /* Оранжевая полоса снизу */
+}
+
+/* Логотип в светлой теме */
+body.light-theme .logo-text {
+  color: white;                    /* Белый цвет текста */
+}
+
+/* Навигация в светлой теме */
+body.light-theme .main-nav a {
+  color: white;                    /* Белые ссылки */
+}
+
+/* Калькулятор в светлой теме */
+body.light-theme .calculator {
+  background-color: #e0e0e0;       /* Светло-серый фон калькулятора */
+  border-color: #4a6fa5;           /* Синяя рамка */
+}
+
+/* Кнопки в светлой теме */
+body.light-theme .my-btn {
+  background: #d0d0d0;             /* Светло-серые кнопки */
+  color: #333333;                  /* Темный текст */
+}
+
+body.light-theme .my-btn.primary {
+  background: #ff9801;             /* Оранжевый цвет для primary (оставляем) */
+  color: white;                    /* Белый текст */
+}
+
+body.light-theme .my-btn.secondary {
+  background: #b0b0b0;             /* Серый цвет для secondary */
+  color: #333333;                  /* Темный текст */
+}
+
+/* Эмодзи на кнопках в светлой теме */
+body.light-theme .my-btn::before {
+  opacity: 0.3;                    /* Чуть прозрачнее */
+}
+
+/* Экран в светлой теме */
+body.light-theme .result {
+  background: #ffffff;             /* Белый фон */
+  color: #333333;                  /* Темный текст */
+  border-color: #4a6fa5;           /* Синяя рамка */
+}
+
+/* Тултип в светлой теме */
+body.light-theme .author-tooltip {
+  background-color: #4a6fa5;       /* Синий фон */
+  border-color: #ff9801;           /* Оранжевая рамка */
+  color: white;                    /* Белый текст */
 }
