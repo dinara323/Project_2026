@@ -47,12 +47,9 @@ window.onload = function() {
         selectedOperation = '/';
     }
 
-    // Кнопка смены знака (+/-)
     document.getElementById("btn_op_sign").onclick = function() { 
-        // Если операция не выбрана - меняем знак у первого числа
         if (!selectedOperation) {
             if (a === '') return;
-            // Если число начинается с минуса - убираем его, иначе добавляем
             if (a.startsWith('-')) {
                 a = a.substring(1);
             } else {
@@ -60,7 +57,6 @@ window.onload = function() {
             }
             outputElement.innerHTML = a;
         } 
-        // Если операция выбрана - меняем знак у второго числа
         else {
             if (b === '') return;
             if (b.startsWith('-')) {
@@ -72,16 +68,13 @@ window.onload = function() {
         }
     }
 
-    // Кнопка процента (%)
     document.getElementById("btn_op_percent").onclick = function() { 
-        // Если операция не выбрана - преобразуем первое число в процент
         if (!selectedOperation) {
             if (a === '') return;
             const numA = parseFloat(a);
             a = (numA / 100).toString();
             outputElement.innerHTML = a;
         } 
-        // Если операция выбрана - преобразуем второе число в процент от первого
         else {
             if (b === '' || a === '') return;
             const numA = parseFloat(a);
@@ -91,6 +84,68 @@ window.onload = function() {
             outputElement.innerHTML = b;
         }
     }
+
+    document.getElementById("btn_op_square").onclick = function() {
+    let currentNumber;
+    if (!selectedOperation) {
+        currentNumber = a;
+    } else {
+        currentNumber = b;
+    }
+    
+    if (currentNumber === '') return;
+    
+    let num = parseFloat(currentNumber);
+    let result = num * num;
+    
+    if (!selectedOperation) {
+        a = result.toString();
+        outputElement.innerHTML = a;
+    } else {
+        b = result.toString();
+        outputElement.innerHTML = b;
+    }
+}
+
+document.getElementById("btn_op_000").onclick = function() { 
+    if (!selectedOperation) {
+        if (a === '') {
+            a = '0';
+        }
+        a += '000';
+        outputElement.innerHTML = a;
+    } 
+    else {
+        if (b === '') {
+            b = '0';
+        }
+        b += '000';
+        outputElement.innerHTML = b;
+    }
+}
+
+document.getElementById("btn_op_sqrt").onclick = function() {
+    let number = outputElement.innerHTML;
+    
+    if (number === '0') return;
+    
+    let value = parseFloat(number);
+    
+    if (value < 0) {
+        outputElement.innerHTML = 'Error';
+        return;
+    }
+    
+    let result = Math.sqrt(value);
+    
+    outputElement.innerHTML = result;
+    
+    if (!selectedOperation) {
+        a = result.toString();
+    } else {
+        b = result.toString();
+    }
+}
 
     document.getElementById("btn_op_clear").onclick = function() { 
         a = '';
