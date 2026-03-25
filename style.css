@@ -169,7 +169,7 @@ body {
 }
 
 .my-btn:hover {
-  background: #ff4d4d !important;
+  background: #aabde9 !important;
 }
 
 .my-btn:active {
@@ -219,12 +219,12 @@ body {
 }
 
 #btn_op_equal {
-  width: 110px;
+  width: 170px;
   border-radius: 40px;   
 }
 
 .result { 
-  width: 220px;
+  width: 285px;
   height: 50px;
   margin-bottom: 15px;
   padding-right: 10px;
@@ -291,7 +291,7 @@ body.light-theme .my-btn {
 }
 
 body.light-theme .my-btn:hover {
-  background: #ff4d4d !important;
+  background: #4764a9 !important;
   color: white;
 }
 
