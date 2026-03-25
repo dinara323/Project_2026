@@ -8,87 +8,94 @@
 </head>
 
 <body>
-  <!-- ========== ШАПКА САЙТА ========== -->
   <header class="site-header">
     <div class="header-container">
-      <!-- Логотип сайта -->
       <div class="logo">
-        <span class="logo-icon">🎬</span>
-        <span class="logo-text">КИНОПОРТАЛ</span>
+        <div class="logo-icon">🎬</div>
+        <div class="logo-text">КИНОПОРТАЛ</div>
       </div>
       
-      <!-- Навигационное меню -->
-      <nav class="main-nav">
+      <div class="main-nav">
         <ul>
           <li><a href="#">Главная</a></li>
           <li><a href="#">Фильмы</a></li>
           <li><a href="#">Сериалы</a></li>
           <li><a href="#">Актёры</a></li>
+          <li class="calculator-menu-item">
+            <a href="#" id="calculator-link">Калькулятор</a>
+          </li>
           <li class="author-menu-item">
             <a href="#" id="author-link">Об авторе</a>
-            <!-- Блок с информацией, который появляется при наведении -->
-            <div class="author-tooltip">
+            <div id="author-tooltip" class="author-tooltip">
               <div>Якубова Динара</div>
               <div>ИУ5-443Б</div>
             </div>
           </li>
         </ul>
-      </nav>
+      </div>
       
-      <!-- Круглая кнопка переключения темы -->
-      <button id="theme-toggle" class="theme-btn">🌙</button>
+      <button id="theme-indicator" class="theme-btn">🌙</button>
     </div>
   </header>
 
-  <!-- ========== ОСНОВНОЙ КОНТЕНТ ========== -->
-  <!-- Центрируем калькулятор на странице -->
-  <div class="center">
-    <!-- Контейнер калькулятора с прямоугольной рамкой -->
-    <div class="calculator">
-      
-      <!-- блок с экраном калькулятора, где будет выводиться результат вычислений. -->
-      <div id="result" class="result">
-          0
-      </div>
+  <main class="main-content">
+    <div id="calculator-container" class="calculator-container" style="display: none;">
+      <div class="center">
+        <div class="calculator">
+          
+          <div id="result" class="result">
+              0
+          </div>
 
-      <!-- блок с кнопками калькулятора. -->
-      <div>
-        <!--горизонтальный ряд из четырех кнопок-->
-        <div>  
-          <button id="btn_op_clear" class="my-btn secondary">C</button>
-          <button id="btn_op_sign" class="my-btn secondary">+/-</button>
-          <button id="btn_op_percent" class="my-btn secondary">%</button>
-          <button id="btn_op_div" class="my-btn primary">/</button>
-        </div>
+          <div>
+            <div>  
+              <button id="btn_op_clear" class="my-btn secondary">C</button>
+              <button id="btn_op_sign" class="my-btn secondary">+/-</button>
+              <button id="btn_op_percent" class="my-btn secondary">%</button>
+              <button id="btn_op_div" class="my-btn primary">/</button>
+            </div>
 
-        <div>
-          <button id="btn_digit_7" class="my-btn">7</button>
-          <button id="btn_digit_8" class="my-btn">8</button>
-          <button id="btn_digit_9" class="my-btn">9</button>
-          <button id="btn_op_mult" class="my-btn primary">x</button>
-        </div>
+            <div>
+              <button id="btn_digit_7" class="my-btn">7</button>
+              <button id="btn_digit_8" class="my-btn">8</button>
+              <button id="btn_digit_9" class="my-btn">9</button>
+              <button id="btn_op_mult" class="my-btn primary">x</button>
+            </div>
 
-        <div>
-          <button id="btn_digit_4" class="my-btn">4</button>
-          <button id="btn_digit_5" class="my-btn">5</button>
-          <button id="btn_digit_6" class="my-btn">6</button>
-          <button id="btn_op_minus" class="my-btn primary">-</button>
-        </div>
+            <div>
+              <button id="btn_digit_4" class="my-btn">4</button>
+              <button id="btn_digit_5" class="my-btn">5</button>
+              <button id="btn_digit_6" class="my-btn">6</button>
+              <button id="btn_op_minus" class="my-btn primary">-</button>
+            </div>
 
-        <div>
-          <button id="btn_digit_1" class="my-btn">1</button>
-          <button id="btn_digit_2" class="my-btn">2</button>
-          <button id="btn_digit_3" class="my-btn">3</button>
-          <button id="btn_op_plus" class="my-btn primary">+</button>
-        </div>
+            <div>
+              <button id="btn_digit_1" class="my-btn">1</button>
+              <button id="btn_digit_2" class="my-btn">2</button>
+              <button id="btn_digit_3" class="my-btn">3</button>
+              <button id="btn_op_plus" class="my-btn primary">+</button>
+            </div>
 
-        <div>
-          <button id="btn_digit_0" class="my-btn">0</button>
-          <button id="btn_digit_dot" class="my-btn">.</button>
-          <button id="btn_op_equal" class="my-btn primary">=</button>
+            <div>
+              <button id="btn_digit_0" class="my-btn">0</button>
+              <button id="btn_digit_dot" class="my-btn">.</button>
+              <button id="btn_op_equal" class="my-btn primary">=</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="#">Вакансии</a>
+        <a href="#">Реклама</a>
+        <a href="#">Соглашение</a>
+        <a href="#">Служба поддержки</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
