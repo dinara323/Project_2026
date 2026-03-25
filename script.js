@@ -47,6 +47,51 @@ window.onload = function() {
         selectedOperation = '/';
     }
 
+    // Кнопка смены знака (+/-)
+    document.getElementById("btn_op_sign").onclick = function() { 
+        // Если операция не выбрана - меняем знак у первого числа
+        if (!selectedOperation) {
+            if (a === '') return;
+            // Если число начинается с минуса - убираем его, иначе добавляем
+            if (a.startsWith('-')) {
+                a = a.substring(1);
+            } else {
+                a = '-' + a;
+            }
+            outputElement.innerHTML = a;
+        } 
+        // Если операция выбрана - меняем знак у второго числа
+        else {
+            if (b === '') return;
+            if (b.startsWith('-')) {
+                b = b.substring(1);
+            } else {
+                b = '-' + b;
+            }
+            outputElement.innerHTML = b;
+        }
+    }
+
+    // Кнопка процента (%)
+    document.getElementById("btn_op_percent").onclick = function() { 
+        // Если операция не выбрана - преобразуем первое число в процент
+        if (!selectedOperation) {
+            if (a === '') return;
+            const numA = parseFloat(a);
+            a = (numA / 100).toString();
+            outputElement.innerHTML = a;
+        } 
+        // Если операция выбрана - преобразуем второе число в процент от первого
+        else {
+            if (b === '' || a === '') return;
+            const numA = parseFloat(a);
+            const numB = parseFloat(b);
+            const percentValue = (numA * numB) / 100;
+            b = percentValue.toString();
+            outputElement.innerHTML = b;
+        }
+    }
+
     document.getElementById("btn_op_clear").onclick = function() { 
         a = '';
         b = '';
@@ -102,7 +147,7 @@ window.onload = function() {
     };
 
     // тема
-    const themeIndicator = document.getElementById('theme-toggle');
+    const themeIndicator = document.getElementById('theme-indicator');
     let isDarkTheme = true;
     
     themeIndicator.onclick = function() {
