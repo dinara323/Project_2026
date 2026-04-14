@@ -183,6 +183,34 @@ document.getElementById("btn_op_sqrt").onclick = function() {
         outputElement.innerHTML = a;
     }
 
+
+document.getElementById("btn_op_backspace").onclick = function() {
+    if (!selectedOperation) {
+        if (a === '') return;
+        
+        a = a.slice(0, -1);
+        
+        if (a === '') {
+            outputElement.innerHTML = '0';
+        } else {
+            outputElement.innerHTML = a;
+        }
+    } 
+    else {
+        if (b === '') return;
+        
+        b = b.slice(0, -1);
+        
+        if (b === '') {
+            outputElement.innerHTML = '0';
+        } else {
+            outputElement.innerHTML = b;
+        }
+    }
+}
+
+
+
     // показать калькулятор
     const calculatorContainer = document.getElementById('calculator-container');
     const calculatorLink = document.getElementById('calculator-link');

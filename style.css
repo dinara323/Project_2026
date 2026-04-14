@@ -1,6 +1,9 @@
 body {
   margin: 0;
   padding: 0;
+  background-image: url('header-bg.png');
+  background-size: cover; 
+  background-position: center;
   background-color: #1a1a2e;
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease;
@@ -12,9 +15,8 @@ body {
 .site-header {
   background-color: #16213e;
   color: white;
-  padding: 15px 0;
+  padding: 40px 0;
   border-bottom: 3px solid white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
   flex-shrink: 0;
 }
@@ -63,6 +65,10 @@ body {
 
 .main-nav a:hover {
   color: #e8e4ae;
+}
+
+.footer-links a:hover {
+  color: #e8e4ae;  
 }
 
 .theme-btn {
@@ -238,7 +244,7 @@ body {
   box-sizing: border-box;
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   overflow-x: auto;      /* прокрутка при переполнении */
-  scrollbar-width: thin; /* Тонкая полоса прокрутки (для Firefox) */
+  scrollbar-width: thin; /* полоса прокрутки */
 }
 
 .site-footer {
@@ -315,6 +321,8 @@ body.light-theme .result {
   background: #ffffff;
   color: #333333;
   border-color: #4a6fa5;
+  overflow-x: auto;      /* прокрутка при переполнении */
+  scrollbar-width: thin;
 }
 
 body.light-theme .author-tooltip {
